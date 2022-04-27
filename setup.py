@@ -12,7 +12,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 
 setup(name='sztaki',
-      version='0.1.2',
+      version='0.1.3',
       description='Hungarian to English words tranlator',
       url='https://github.com/adyachok/sztaki',
       author='Andras Gyacsok',
@@ -25,7 +25,7 @@ setup(name='sztaki',
             'charset-normalizer==2.0.12',
             'dataclasses-json==0.5.7',
             'idna==3.3',
-            'googletrans==3.1.0a0',
+            'googletrans==4.0.0rc1',
             'marshmallow==3.15.0',
             'marshmallow-enum==1.5.1',
             'mypy-extensions==0.4.3',
