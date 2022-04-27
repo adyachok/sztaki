@@ -10,8 +10,9 @@ this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
+
 setup(name='sztaki',
-      version='0.1.0',
+      version='0.1.2',
       description='Hungarian to English words tranlator',
       url='https://github.com/adyachok/sztaki',
       author='Andras Gyacsok',
@@ -24,6 +25,7 @@ setup(name='sztaki',
             'charset-normalizer==2.0.12',
             'dataclasses-json==0.5.7',
             'idna==3.3',
+            'googletrans==3.1.0a0',
             'marshmallow==3.15.0',
             'marshmallow-enum==1.5.1',
             'mypy-extensions==0.4.3',

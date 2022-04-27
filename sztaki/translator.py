@@ -2,6 +2,7 @@ import time
 
 import requests
 from bs4 import SoupStrainer, BeautifulSoup
+from googletrans import Translator
 
 from sztaki.models import WordMetadata, Translation, SkovorodaDict
 
@@ -65,7 +66,9 @@ class SztakiTranslator:
                 attrs={'class': 'translation eNodeText'})
 
             for div in translation_divs:
-                translation = Translation(translation=div.find('a').text)
+                translation = div.find('a').text
+                translation = _translate_ua(translation)
+                translation = Translation(translation=translation)
                 pronunciation_spans = div.find_all('span')
                 for span in pronunciation_spans:
                     pronunciation = span.text
@@ -89,6 +92,12 @@ class SztakiTranslator:
             except requests.exceptions.ConnectionError:
                 print("Network connection error.")
             time.sleep(5)
+
+def _translate_ua(text):
+    translator = Translator()
+    translation =  translator.translate(text, dest='uk', src='en')
+    text = translation.text
+    return text
 
 
 if __name__ == '__main__':
